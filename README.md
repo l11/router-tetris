@@ -74,8 +74,8 @@ So, this is just a test of whether the router CPUs can handle a simple game, enj
 
 This fork is designed to be compatible with specific platforms, and as a proof of concept for running games on routers, it may not be actively maintained in the future, any issues in [the original code](https://github.com/ContentsViewer/shtris) should be submitted directly to [the original project](https://github.com/ContentsViewer/shtris/issues), and any comments about this project should be in [the discussion](https://github.com/l11/router-tetris/discussions).
 
-## Screenshot from original project
-![shtris](https://contentsviewer.work/Master/ShellScript/Apps/Tetris/Images/shtris.jpg)
+## Screenshot
+![shtris](https://www.snbforums.com/attachments/tetris-png.41833/)
 
  
 ## Credit
