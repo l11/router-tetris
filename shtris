@@ -145,21 +145,21 @@ PROCESS_INKEY=4
 # The normal Fall Speed is defined here to be the time it takes a Tetrimino to fall by one line.
 # The current level of the game determines the normal Fall Speed using the following equation:
 # (0.8 - ((level - 1) * 0.007))^(level-1)
-FALL_SPEED_LEVEL_1=1
-FALL_SPEED_LEVEL_2=0.793
-FALL_SPEED_LEVEL_3=0.618
-FALL_SPEED_LEVEL_4=0.473
-FALL_SPEED_LEVEL_5=0.355
-FALL_SPEED_LEVEL_6=0.262
-FALL_SPEED_LEVEL_7=0.190
-FALL_SPEED_LEVEL_8=0.135
-FALL_SPEED_LEVEL_9=0.094
-FALL_SPEED_LEVEL_10=0.064
-FALL_SPEED_LEVEL_11=0.043
-FALL_SPEED_LEVEL_12=0.028
-FALL_SPEED_LEVEL_13=0.018
-FALL_SPEED_LEVEL_14=0.011
-FALL_SPEED_LEVEL_15=0.007
+FALL_SPEED_LEVEL_1=1000000
+FALL_SPEED_LEVEL_2=793000
+FALL_SPEED_LEVEL_3=618000
+FALL_SPEED_LEVEL_4=473000
+FALL_SPEED_LEVEL_5=355000
+FALL_SPEED_LEVEL_6=262000
+FALL_SPEED_LEVEL_7=190000
+FALL_SPEED_LEVEL_8=135000
+FALL_SPEED_LEVEL_9=94000
+FALL_SPEED_LEVEL_10=64000
+FALL_SPEED_LEVEL_11=43000
+FALL_SPEED_LEVEL_12=28000
+FALL_SPEED_LEVEL_13=18000
+FALL_SPEED_LEVEL_14=11000
+FALL_SPEED_LEVEL_15=7000
 LEVEL_MAX=15
 
 # Those are Tetrimino type (and empty)
@@ -465,7 +465,7 @@ eval T_TETRIMINO_"$WEST"_SIDES=\" 0 2  0 0  2 2  2 0\"
 EMPTY_CELL=' .'     # how we draw empty cell
 FILLED_CELL='[]'    # how we draw filled cell
 INACTIVE_CELL='_]'  # how we draw inactive cell
-GHOST_CELL='░░'     # how we draw ghost cell
+GHOST_CELL='□'     # how we draw ghost cell
 DRY_CELL='  '       # how we draw dry cell
 
 HELP="
@@ -866,7 +866,7 @@ exist_process() {
 }
 
 stop_at_start() {
-  sleep 0.1 # wait a bit because the too fast(?) ksh will output an error "Stopped (SIGSTOP)".
+  usleep 100000 # wait a bit because the too fast(?) ksh will output an error "Stopped (SIGSTOP)".
   $debug echo "stop at start: $1"
   send_signal "$SIGNAL_STOP" "$1"
 }
@@ -1296,7 +1296,7 @@ process_fallen_piece() {
   # flash piece effect
   flash_current
   flush_screen
-  sleep 0.03
+  # usleep 30000
 
   show_current
   draw_action false
@@ -1312,12 +1312,12 @@ process_fallen_piece() {
   $perfect_clear && flash_perfect_clear
   flash_line "$@"
   flush_screen
-  sleep 0.045
+  # usleep 45000
 
   $perfect_clear && draw_perfect_clear
   clear_line "$@"
   flush_screen
-  sleep 0.5
+  # usleep 50000
 
   capture_input
   redraw_playfield
@@ -2310,7 +2310,7 @@ lockdown_timer() {
   stop_at_start "$my_pid"
 
   while exist_process "$game_pid"; do
-    sleep 0.1
+	usleep 100000
 
     trigger_counter=$((trigger_counter >= 0 ? trigger_counter - 1 : trigger_counter))
     # $debug echo "trigger_counter: $trigger_counter"
@@ -2342,13 +2342,13 @@ ticker() {
 
   # wait for the level to reset, then stop
   while exist_process "$game_pid" && [ "$level" -eq 0 ]; do
-    sleep 0.1
+    usleep 100000
   done
   stop_at_start "$my_pid"
 
   # the game level, which levelup-signal counts up.
   while exist_process "$game_pid"; do
-    eval sleep \"\$FALL_SPEED_LEVEL_$level\"
+    eval usleep \"\$FALL_SPEED_LEVEL_$level\"
 
     # The following code will cause an error ("Illegal instruction: 4") on macOS(bash 3.2.57).
     #   eval sleep \"\$FALL_SPEED_LEVEL_$level\" &
