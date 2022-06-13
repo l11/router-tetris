@@ -1,12 +1,13 @@
 # Router Tetris
 
-When I was writing some scripts for my asus router, I suddenly wanted to try if I could play games on the router, so I tried to find some games written in shell scripts, at first I wanted to try The Game of Life, But the CPU usage is always 100% due to many calculations, I ended up going with Tetris, after trying a few I decided to fork [@ContentsViewer](https://github.com/ContentsViewer)'s [shtris](https://github.com/ContentsViewer/shtris) and do some compatibility rewrites.
+When I was writing some scripts for my asus router, I suddenly wanted to try if I could play games on the router, so I tried to find some games written in shell scripts, at first I wanted to try The Game of Life, But the CPUs usage is always 100% due to many calculations, I ended up going with Tetris, after trying a few I decided to fork [@ContentsViewer](https://github.com/ContentsViewer)'s [shtris](https://github.com/ContentsViewer/shtris) and do some compatibility rewrites.
 
 
 ## The main changes I made are:
 
-Because the sleep provided by busybox does not support floating point numbers, use usleep instead.
-Changed thespecial character for GHOST_CELL to ensure better compatibility.
+Because the `sleep` provided by busybox does not support floating point numbers, use `usleep` instead.
+
+Changed thespecial character for `GHOST_CELL` to ensure better compatibility.
 
 
 ## Usage
@@ -67,7 +68,7 @@ Version:
 
  ## Notice
  
-I did testing on an RT-AC86U running 386.5_2 (this is an A53 router with dual core 1.8GHz) but the CPU usage is still over 80% in play and stutters as the difficulty level of the game increases will be more serious.
+I did testing on an RT-AC86U running 386.5_2 (this is an A53 router with dual core 1.8GHz) but the CPUs usage is still over 80% in play and stutters as the difficulty level of the game increases will be more serious.
 
 So, this is just a test of whether the router CPUs can handle a simple game, enjoy it or not.
 
