@@ -1,6 +1,6 @@
 # Router Tetris
 
-When I was writing some scripts for my asus router, I suddenly wanted to try if I could play games on the router, so I tried to find some games written in shell scripts, at first I wanted to try The Game of Life, But the CPUs usage is always 100% due to many calculations, I ended up going with Tetris, after trying a few I decided to fork [@ContentsViewer](https://github.com/ContentsViewer)'s [shtris](https://github.com/ContentsViewer/shtris) and do some compatibility rewrites.
+When I was writing some scripts for my asus routers, I suddenly wanted to try if I could play games on the router, so I tried to find some games written in shell scripts, at first I wanted to try The Game of Life, But the CPUs usage is always 100% due to many calculations, I ended up going with Tetris, after trying a few I decided to fork [@ContentsViewer](https://github.com/ContentsViewer)'s [shtris](https://github.com/ContentsViewer/shtris) and make compatibility improvements.
 
 
 ## The main changes I made are:
@@ -17,7 +17,7 @@ Changed thespecial character for `GHOST_CELL` to ensure better compatibility.
 cd /tmp
 
 # download
-wget https://github.com/l11/router-tetris/blob/master/shtris -O ./shtris
+wget https://raw.githubusercontent.com/l11/router-tetris/main/shtris -O ./shtris
 
 # add permissions
 chmod +x ./shtris
@@ -61,23 +61,35 @@ Version:
 
 | Environment                                       | Support              |
 | :-----------------------------------------------: | :------------------: |
-| Asuswrt 386.x and higher  sh (by busybox)         | o                    |
-| Asuswrt-Merlin 386.x and higher  sh (by busybox)  | o                    |
-| Fresh Tomato 2022 sh (by busybox)                 | o (Not fully tested) |
+| Asuswrt 386.x and higher  (sh by busybox)         | o                    |
+| Asuswrt-Merlin 386.x and higher  (sh by busybox)  | o                    |
+| Fresh Tomato 2022 (sh by busybox)                 | o (Not fully tested) |
 
 
  ## Notice
  
-I did testing on an RT-AC86U running 386.5_2 (this is an A53 router with dual core 1.8GHz) but the CPUs usage is still over 80% in play and stutters as the difficulty level of the game increases will be more serious.
+I did testing on an RT-AC86U running 386.5_2 (this is a cortex-a53 router with dual core 1.8GHz) but the CPUs usage is still over 80% in play and stutters as the difficulty level of the game increases will be more serious.
 
 So, this is just a test of whether the router CPUs can handle a simple game, enjoy it or not.
 
-This fork is designed to be compatible with specific platforms, and as a proof of concept for running games on routers, it may not be actively maintained in the future, any issues in the [original code](https://github.com/ContentsViewer/shtris) should be submitted directly to [the original project](https://github.com/ContentsViewer/shtris/issues), and any comments about this project should be in [the discussion](https://github.com/l11/router-tetris/discussions).
+This fork is designed to be compatible with specific platforms, and as a proof of concept for running games on routers, it may not be actively maintained in the future, any issues in [the original code](https://github.com/ContentsViewer/shtris) should be submitted directly to [the original project](https://github.com/ContentsViewer/shtris/issues), and any comments about this project should be in [the discussion](https://github.com/l11/router-tetris/discussions).
 
 ## Screenshot from original project
 ![shtris](https://contentsviewer.work/Master/ShellScript/Apps/Tetris/Images/shtris.jpg)
 
  
-## Original Author
+## Credit
 
+**Original Author:**
+ 
 IOE <Github: [@ContentsViewer](https://github.com/ContentsViewer)>
+ 
+**Compatibility Modifier:**
+ 
+OOOD <Github: [@oood](https://github.com/oood)>
+ 
+
+## License
+
+(MIT License)[https://github.com/l11/router-tetris/blob/main/LICENSE]
+ 
