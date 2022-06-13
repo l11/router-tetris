@@ -91,5 +91,5 @@ OOOD <Github: [@oood](https://github.com/oood)>
 
 ## License
 
-(MIT License)[https://github.com/l11/router-tetris/blob/main/LICENSE]
+[MIT License](https://github.com/l11/router-tetris/blob/main/LICENSE)
  
